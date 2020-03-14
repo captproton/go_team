@@ -72,3 +72,4 @@ gem 'whenever', require: false
 
 ## custom for app
 gem 'devise_invitable', '~> 2.0', '>= 2.0.1'
+gem 'sendgrid-ruby'
