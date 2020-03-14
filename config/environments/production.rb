@@ -60,6 +60,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "go_team_production"
 
+   # ActionMailer Config
+  config.action_mailer.default_url_options = { host: ENV["ACTION_MAILER_HOST"] }
   config.action_mailer.perform_caching = false
 
   # Setup the mailer config for sendgrid
@@ -68,7 +70,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
-    :domain => 'yourdomain.com',
+    :domain => 'secondstarlabs.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
