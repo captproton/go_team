@@ -8,6 +8,21 @@
   <h1><%= @team.name %></h1>
   <%#= link_to 'Invite', new_user_invitation_path(team_id: @team.id) %>
 </div>
+<div class="invitation-form">
+  <h4>Invite New Team Member</h4>
+  <%= form_for [@team, TeamUser.new]  do |f| %>
+    <%= f.text_field :email, required: true %>
+
+    <%= f.submit "Invite!" %>
+  <% end %>
+</div>
+<ul class="team-members">
+  <% @team.users.each do |user| %>
+    <li><%= user.email %> </li>
+  
+  <% end %>
+  
+</ul>
 
 
 <dl class="dl-horizontal">
