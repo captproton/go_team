@@ -1,7 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :teams
+  resources :teams do
+    resources :team_users, path: :users, module: :teams
+  end
   namespace :admin do
     resources :users
     resources :announcements

@@ -5,8 +5,10 @@
   <%= link_to edit_team_path(@team), class: 'btn btn-primary' do %>
     Edit
   <% end %>
-  <h1>Show team</h1>
+  <h1><%= @team.name %></h1>
+  <%#= link_to 'Invite', new_user_invitation_path(team_id: @team.id) %>
 </div>
+
 
 <dl class="dl-horizontal">
   <dt>Name:</dt>
