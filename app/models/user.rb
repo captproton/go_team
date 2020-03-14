@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
+
+  # custom to app
+  has_many :team_users
+  has_many :teams, through: :team_users
 end
