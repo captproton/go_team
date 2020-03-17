@@ -3,18 +3,32 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
-require("local-time").start()
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+require("channels");
+require("local-time").start();
 
-window.Rails = Rails
+window.Rails = Rails;
 
-import 'bootstrap'
-import 'data-confirm-modal'
+import Vue from "vue/dist/vue.esm";
+
+import TurbolinksAdapter from "vue-turbolinks";
+Vue.use(TurbolinksAdapter);
+
+import App from "../app.vue";
+Vue.component("app", App);
+
+document.addEventListener("turbolinks:load", () => {
+  const app = new Vue({
+    el: '[data-behavior="vue"]'
+  });
+});
+
+import "bootstrap";
+import "data-confirm-modal";
 
 $(document).on("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-  $('[data-toggle="popover"]').popover()
-})
+  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="popover"]').popover();
+});
