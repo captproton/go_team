@@ -1,0 +1,39 @@
+<%= form_with(model: ballot_initiative, local: true) do |form| %>
+  <% if ballot_initiative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ballot_initiative.errors.count, "error") %> prohibited this ballot_initiative from being saved:</h2>
+
+      <ul>
+      <% ballot_initiative.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :team_id %>
+    <%= form.text_field :team_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if ballot_initiative.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', ballot_initiative, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if ballot_initiative.persisted? %>
+      <%= link_to "Cancel", ballot_initiative, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", ballot_initiatives_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

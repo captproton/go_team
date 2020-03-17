@@ -1,0 +1,2 @@
+module BallotInitiativesHelper
+end
