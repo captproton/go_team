@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :ballot_initiatives
   resources :teams do
     resources :team_users, path: :users, module: :teams
   end
